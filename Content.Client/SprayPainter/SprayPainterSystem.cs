@@ -25,6 +25,7 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
     public List<SprayPainterDecalEntry> Decals = [];
     public Dictionary<string, List<string>> PaintableGroupsByCategory = new();
     public Dictionary<string, Dictionary<string, EntProtoId>> PaintableStylesByGroup = new();
+    public Dictionary<string, PaintingStyle?> PaintableStyleByGroup = new();
 
     public override void Initialize()
     {
@@ -60,6 +61,7 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
     {
         PaintableGroupsByCategory.Clear();
         PaintableStylesByGroup.Clear();
+        PaintableStyleByGroup.Clear();
         foreach (var category in Proto.EnumeratePrototypes<PaintableGroupCategoryPrototype>().OrderBy(x => x.ID))
         {
             var groupList = new List<string>();
@@ -70,6 +72,7 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
 
                 groupList.Add(groupId);
                 PaintableStylesByGroup[groupId] = group.Styles;
+                PaintableStyleByGroup[groupId] = group.Style;
             }
 
             if (groupList.Count > 0)
@@ -86,6 +89,37 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
 
             Decals.Add(new SprayPainterDecalEntry(decalPrototype.ID, decalPrototype.Sprite));
         }
+    }
+
+    /// <summary>
+    /// Returns categories and groups filtered by the painting style.
+    /// Returns categories and groups sharing the painting styles or with no painting style set.
+    /// </summary>
+    public (Dictionary<string, List<string>> categories, Dictionary<string, Dictionary<string, EntProtoId>> styles)
+        GetFilteredGroups(PaintingStyle paintingStyle)
+    {
+        var filteredCategories = new Dictionary<string, List<string>>();
+        var filteredStyles = new Dictionary<string, Dictionary<string, EntProtoId>>();
+
+        foreach (var (categoryId, groups) in PaintableGroupsByCategory)
+        {
+            var filteredGroupList = new List<string>();
+            foreach (var groupId in groups)
+            {
+                if (PaintableStyleByGroup.TryGetValue(groupId, out var groupStyle)
+                    && groupStyle != null
+                    && groupStyle != paintingStyle)
+                    continue;
+
+                filteredGroupList.Add(groupId);
+                filteredStyles[groupId] = PaintableStylesByGroup[groupId];
+            }
+
+            if (filteredGroupList.Count > 0)
+                filteredCategories[categoryId] = filteredGroupList;
+        }
+
+        return (filteredCategories, filteredStyles);
     }
 
     private sealed class StatusControl : Control

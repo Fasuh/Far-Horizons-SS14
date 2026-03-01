@@ -41,6 +41,13 @@ public sealed partial class PaintableGroupPrototype : IPrototype
     /// </summary>
     [DataField]
     public int IconPriority;
+
+    /// <summary>
+    /// If set, this group is only available to spray painters with the same style
+    /// If null, the group is available to all spray painters.
+    /// </summary>
+    [DataField]
+    public PaintingStyle? Style;
 }
 
 [Serializable, NetSerializable]

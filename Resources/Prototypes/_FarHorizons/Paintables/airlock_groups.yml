@@ -1,7 +1,8 @@
-﻿- type: paintableGroup
+- type: paintableGroup
   id: FHAirlockStandard
   time: 3
   cost: 3
+  style: NanoTrasen
   defaultStyle: basic
   styles:
     atmospherics: FHAirlockAtmospherics
@@ -23,6 +24,7 @@
   id: FHAirlockGlass
   time: 3
   cost: 3
+  style: NanoTrasen
   defaultStyle: basic
   styles:
     atmospherics: FHAirlockAtmosphericsGlass
@@ -38,3 +40,47 @@
     science: FHAirlockScienceGlass
     security: FHAirlockSecurityGlass
     virology: FHAirlockVirologyGlass
+
+- type: paintableGroup
+  id: FHAirlockStandardSyndie
+  time: 3
+  cost: 3
+  style: Syndicate
+  defaultStyle: basic
+  styles:
+    atmospherics: FHAirlockAtmosphericsSyndie
+    basic: FHAirlockBasicSyndie
+    chemistry: FHAirlockChemistrySyndie
+    command: FHAirlockCommandSyndie
+    engineering: FHAirlockEngineeringSyndie
+    hydroponics: FHAirlockHydroponicsSyndie
+    maintenance: FHAirlockMaintSyndie
+    medical: FHAirlockMedicalSyndie
+    paramedic: FHAirlockParamedicSyndie
+    robotics: FHAirlockRoboticsSyndie
+    science: FHAirlockScienceSyndie
+    security: FHAirlockSecuritySyndie
+    surgery: FHAirlockSurgerySyndie
+    virology: FHAirlockVirologySyndie
+
+- type: paintableGroup
+  id: FHAirlockGlassSyndie
+  time: 3
+  cost: 3
+  style: Syndicate
+  defaultStyle: basic
+  styles:
+    atmospherics: FHAirlockAtmosphericsSyndicateGlass
+    basic: FHAirlockBasicSyndicateGlass
+    chemistry: FHAirlockChemistrySyndicateGlass
+    command: FHAirlockCommandSyndicateGlass
+    engineering: FHAirlockEngineeringSyndicateGlass
+    hydroponics: FHAirlockHydroponicsSyndicateGlass
+    maintenance: FHAirlockMaintSyndicateGlass
+    medical: FHAirlockMedicalSyndicateGlass
+    paramedic: FHAirlockParamedicSyndicateGlass
+    robotics: FHAirlockRoboticsSyndicateGlass
+    science: FHAirlockScienceSyndicateGlass
+    security: FHAirlockSecuritySyndicateGlass
+    surgery: FHAirlockSurgerySyndicateGlass
+    virology: FHAirlockVirologySyndicateGlass

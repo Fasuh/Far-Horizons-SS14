@@ -33,12 +33,20 @@ public sealed class SprayPainterBoundUserInterface(EntityUid owner, Enum uiKey) 
             _window.OnDecalColorPickerToggled += OnDecalColorPickerToggled;
         }
 
-        var sprayPainter = EntMan.System<SprayPainterSystem>();
-        _window.PopulateCategories(sprayPainter.PaintableStylesByGroup, sprayPainter.PaintableGroupsByCategory, sprayPainter.Decals);
-        Update();
+        var sprayPainterSys = EntMan.System<SprayPainterSystem>();
 
         if (EntMan.TryGetComponent(Owner, out SprayPainterComponent? sprayPainterComp))
+        {
+            var (filteredCategories, filteredStyles) = sprayPainterSys.GetFilteredGroups(sprayPainterComp.PaintingStyle);
+            _window.PopulateCategories(filteredStyles, filteredCategories, sprayPainterSys.Decals);
+            Update();
             _window.SetSelectedTab(sprayPainterComp.SelectedTab);
+        }
+        else
+        {
+            _window.PopulateCategories(sprayPainterSys.PaintableStylesByGroup, sprayPainterSys.PaintableGroupsByCategory, sprayPainterSys.Decals);
+            Update();
+        }
     }
 
     public override void Update()

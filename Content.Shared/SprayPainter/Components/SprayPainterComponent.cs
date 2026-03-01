@@ -1,4 +1,5 @@
 using Content.Shared.Decals;
+using Content.Shared.SprayPainter.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -111,6 +112,12 @@ public sealed partial class SprayPainterComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ColorPickerEnabled = false;
+
+    /// <summary>
+    /// The painting style used by this painter, it will limit what categories are available to it
+    /// </summary>
+    [DataField]
+    public PaintingStyle PaintingStyle = PaintingStyle.NanoTrasen;
 }
 
 /// <summary>

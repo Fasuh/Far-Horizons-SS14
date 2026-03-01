@@ -62,6 +62,9 @@ public abstract class SharedSprayPainterSystem : EntitySystem
         bool stylesByGroupPopulated = false;
         foreach (var groupProto in Proto.EnumeratePrototypes<PaintableGroupPrototype>())
         {
+            if (groupProto.Style != null && groupProto.Style != ent.Comp.PaintingStyle)
+                continue;
+
             ent.Comp.StylesByGroup[groupProto.ID] = groupProto.DefaultStyle;
             stylesByGroupPopulated = true;
         }
