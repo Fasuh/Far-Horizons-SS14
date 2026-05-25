@@ -1,0 +1,12 @@
+- type: entity
+  id: EffectLightExposureNightVision
+  categories: [ HideSpawnMenu ]
+  name: light dominance effect
+  components:
+  - type: PointLight
+    color: "#FFFFFF"
+    energy: 0.0
+    radius: 7
+    softness: 6
+    castShadows: false
+  - type: DarkLight

@@ -1,0 +1,5 @@
+
+
+void fragment() {
+    COLOR = vec4(lifted + glow, scene.a);
+}
