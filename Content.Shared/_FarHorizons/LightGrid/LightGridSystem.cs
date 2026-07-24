@@ -1,6 +1,6 @@
 using System.Numerics;
 using Content.Shared.Maps;
-using Content.Shared._Starlight.Shadekin.Components;
+using Content.Shared._FarHorizons.LightGrid.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -8,7 +8,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Threading;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Starlight.Shadekin;
+namespace Content.Shared._FarHorizons.LightGrid;
 
 public abstract class SharedLightGridSystem : EntitySystem
 {
@@ -122,7 +122,10 @@ public abstract class SharedLightGridSystem : EntitySystem
             var localDirection = directional
                 ? worldDirection - _transform.GetWorldRotation(gridUid, _xformQuery)
                 : Angle.Zero;
-            var stateHash = HashCode.Combine(tile, lightComp.Radius, brightness, localDirection, lightComp.CastShadows, directional);
+            var localDirectionApprox = (int)Math.Round(localDirection.Theta / (Math.Tau / 16));
+            var brightnessApprox = (int)Math.Round(brightness / 0.05f);
+            
+            var stateHash = HashCode.Combine(tile, lightComp.Radius, brightnessApprox, localDirectionApprox, lightComp.CastShadows, directional);
             UpdateTrackedState(_trackedLights, lightUid, new TrackedGridState(gridUid, stateHash));
             gridData.LightSources.Add(new LightSourceData(
                 tile,

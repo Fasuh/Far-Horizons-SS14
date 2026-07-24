@@ -1,4 +1,4 @@
-namespace Content.Shared._Starlight.Shadekin.Components;
+namespace Content.Shared._FarHorizons.LightGrid.Components;
 
 /// <summary>
 /// DarkLight Ents will be ingored by the "Light Sensetivity Check"

@@ -1,10 +1,10 @@
 using Content.Client._FarHorizons.Spatial;
-using Content.Shared._Starlight.Shadekin;
+using Content.Shared._FarHorizons.LightGrid;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Map;
 
-namespace Content.Client._Starlight.Shadekin;
+namespace Content.Client._FarHorizons.LightGrid;
 
 public sealed class LightGridSystem : SharedLightGridSystem
 {

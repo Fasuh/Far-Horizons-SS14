@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace Content.Shared._Starlight.Shadekin;
+namespace Content.Shared._FarHorizons.LightGrid;
 
 internal readonly record struct LightSourceData(
     Vector2i Tile,

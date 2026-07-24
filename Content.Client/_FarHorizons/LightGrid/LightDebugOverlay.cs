@@ -10,7 +10,8 @@ using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-namespace Content.Client._Starlight.Shadekin;
+
+namespace Content.Client._FarHorizons.LightGrid;
 
 public sealed class LightDebugOverlay : Robust.Client.Graphics.Overlay
 {

@@ -1,12 +1,11 @@
 using System.Numerics;
-using Content.Shared._Starlight.Shadekin;
 using Content.Shared.GameTicking;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
-namespace Content.Client._Starlight.Shadekin;
+namespace Content.Client._FarHorizons.LightGrid;
 
 internal sealed class LightDebugOverlaySystem : EntitySystem
 {

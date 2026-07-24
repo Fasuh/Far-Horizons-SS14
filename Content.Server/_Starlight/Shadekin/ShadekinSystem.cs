@@ -23,7 +23,7 @@ using Content.Shared.Bed.Sleep;
 using Content.Server._Starlight.NullSpace;
 using Content.Server._Starlight.Bluespace;
 using Content.Server.Stunnable;
-using Content.Shared._Starlight.Shadekin.Components;
+using Content.Shared._FarHorizons.LightGrid.Components;
 using Content.Shared.Body;
 using Content.Shared.Damage.Systems;
 

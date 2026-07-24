@@ -1,6 +1,6 @@
 using Robust.Shared.Console;
 
-namespace Content.Client._Starlight.Shadekin.Commands;
+namespace Content.Client._FarHorizons.LightGrid.Commands;
 
 public sealed class ShowLightCommand : IConsoleCommand
 {
